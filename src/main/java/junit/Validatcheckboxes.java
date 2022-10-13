@@ -12,8 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Validatcheckboxes {
 
 	static WebDriver driver;
-	boolean status;
-	boolean removeCheckBox;
 
 	@Before
 	public void init() {
@@ -27,46 +25,59 @@ public class Validatcheckboxes {
 
 	}
 
+//	@Test
+//	public void validateToggleCheckBoxe() {
+//
+//		WebElement allToggleCheckBox = driver.findElement(By.xpath("/html/body/div[3]/input[3]"));
+//		allToggleCheckBox.click();
+//
+//		status = allToggleCheckBox.isSelected();
+//
+//		// confirming what is there in status for learning purpose otherwise no need
+//		System.out.println("Checking boolean status:" + status);
+//
+//		// checking condition is true or not.
+//		if (status) {
+//			System.out.println("allToggleCheckBox is selected sucessfully at profession.");
+//
+//		}
+//
+//		else {
+//			System.out.println("allToggleCheckBox is not clicked at profession.");
+//		}
+//
+//	}
+
+//	@Test
+//	public void removeSingleItem() {
+//
+//		WebElement toDoCheckBox = driver.findElement(By.xpath("//*[@id=\"todos-content\"]/form/ul/li[1]/input"));
+//		toDoCheckBox.click();
+//
+//		WebElement removeCheckBox = driver.findElement(By.xpath("/html/body/div[3]/input[1]"));
+//		removeCheckBox.click();
+//	}
 	@Test
-	public void validateToglleCheckBoxe() {
+	public void validateRemoveSingeItem() {
+		WebElement toDoCheckBox = driver.findElement(By.xpath("//*[@id=\"todos-content\"]/form/ul/li[1]"));
+		toDoCheckBox.click();
 
-		WebElement allToggleCheckBox = driver.findElement(By.xpath("/html/body/div[3]/input[3]"));
-		allToggleCheckBox.click();
-
-		status = allToggleCheckBox.isSelected();
-
-		// confirming what is there in status for learning purpose otherwise no need
+		WebElement removeCheckBox = driver.findElement(By.xpath("/html/body/div[3]/input[1]"));
+		removeCheckBox.click();
+		
+		boolean status = toDoCheckBox.isSelected();
 		System.out.println("Checking boolean status:" + status);
-
-		// checking condition is true or not.
 		if (status) {
-			System.out.println("allToggleCheckBox is selected sucessfully at profession.");
 
-		}
+			System.out.println(status+ "removed");
 
-		else {
-			System.out.println("allToggleCheckBox is not clicked at profession.");
-		}
+		}else
+
+			System.out.println(status+ "not removed");
 
 	}
 
-	@Test
-	public void validationRemoveSingleList() throws Exception {
-
-		WebElement FinalPractical2964 = driver.findElement(By.xpath("//span[contains (text() , 'FinalPractical2964')]"));
-		//the element above has been removed from the website please use different one 
-		FinalPractical2964.click();
-
-		WebElement yesButton = driver.findElement(By.xpath("//a[contains (text() , 'Yes')]"));
-		yesButton.click();
-	}
-//		WebElement remove = driver.findElement(By.xpath("//input[@value = 'Remove']"));
-//		remove.click();
-//	
-		
-
-		
-//		removeCheckBox = remove.isSelected(); // validate YES button is selected or not
+//		 // validate YES button is selected or not
 //		System.out.println("Checking boolean status:" + removeCheckBox); // for understandin perpuses if the status is
 //																			// true or not
 //		if (removeCheckBox) {// if it is true
@@ -97,8 +108,8 @@ public class Validatcheckboxes {
 //
 //			System.out.println("remove checkBox has been selected succsessfully");
 //		} else {
-//			System.out.println("allToglleCheckBox is not clicked at profession.");
-//			System.out.println("can not be selected");
+//			System.out.println("allToglleCheckBox can not be removed");
+
 //
 //		}
 //
